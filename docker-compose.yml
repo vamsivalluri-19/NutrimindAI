@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "5050:5050"
+    environment:
+      - PORT=5050
+      - MONGODB_URI=mongodb+srv://vamsivalluri52_db_user:Vamsi12@nutriai.forvwlr.mongodb.net/nutriai?retryWrites=true&w=majority&appName=nutriai
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=supersecretjwtsecretkey12345!
+      - JWT_REFRESH_SECRET=supersecretjwtrefreshsecretkey67890!
+      - OPENAI_API_KEY=mock-key-for-now
+      - GEMINI_API_KEY=mock-key-for-now
+      - SMTP_HOST=smtp.mailtrap.io
+      - SMTP_PORT=2525
+    depends_on:
+      - mongodb
+      - redis
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo-data:

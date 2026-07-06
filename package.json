@@ -1,0 +1,20 @@
+{
+  "name": "nutrimind-ai-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend-web",
+    "frontend-admin"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "build:shared": "npm run build --workspace=shared",
+    "build:web": "npm run build --workspace=frontend-web",
+    "build:admin": "npm run build --workspace=frontend-admin",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:web": "npm run dev --workspace=frontend-web",
+    "dev:admin": "npm run dev --workspace=frontend-admin"
+  }
+}

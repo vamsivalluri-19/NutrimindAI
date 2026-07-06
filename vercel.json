@@ -2,6 +2,7 @@
   "buildCommand": "npm run build:shared && npm run build:web",
   "outputDirectory": "frontend-web/dist",
   "rewrites": [
+    { "source": "/api/:path*", "destination": "https://nutrimindai-9orr.onrender.com/api/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

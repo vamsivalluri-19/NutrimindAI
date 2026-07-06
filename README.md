@@ -61,3 +61,11 @@ From the project root directory:
 Configure the following inside `backend/.env`:
 * `MONGODB_URI`: Points directly to your MongoDB Atlas connection string (`mongodb+srv://...`).
 * `PORT`: `5050`
+
+### Google Sign-In Setup
+The web client serves on `http://localhost:3030` by default. Add these as authorized JavaScript origins in Google Cloud Console for the OAuth client used by `frontend-web/.env`:
+
+* `http://localhost:3030`
+* `http://127.0.0.1:3030`
+
+If you run the app on another host or port, add that exact origin too.

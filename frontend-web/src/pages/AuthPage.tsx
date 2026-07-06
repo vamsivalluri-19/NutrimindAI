@@ -22,6 +22,7 @@ export default function AuthPage() {
   const [info, setInfo] = useState('');
 
   const navigate = useNavigate();
+  const googleOrigin = window.location.origin;
 
   const handleAuthSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -246,6 +247,9 @@ export default function AuthPage() {
 
         <div className="flex flex-col space-y-3 mb-6">
           <div id="googleButton" className="w-full flex justify-center"></div>
+          <p className="px-1 text-xs leading-5 text-slate-500 dark:text-slate-400 text-center">
+            Google sign-in must allow this origin in Google Cloud Console: {googleOrigin}. For local dev, also add http://localhost:3030 and http://127.0.0.1:3030.
+          </p>
           <button
             onClick={() => {
               localStorage.setItem('token', 'mock_apple_token');

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run build:shared && npm run build:web",
+  "outputDirectory": "frontend-web/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
